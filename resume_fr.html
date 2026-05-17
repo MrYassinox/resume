@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naceur Mohammed (Yassin) — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a; --bg-card: #111111; --bg-hover: #181818;
+    --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+    --accent: #1fcc8a; --accent-dim: rgba(31,204,138,0.12); --accent-dim2: rgba(31,204,138,0.06);
+    --text-primary: #f0f0f0; --text-secondary: #888; --text-muted: #555;
+    --font-head: 'Space Grotesk', sans-serif; --font-body: 'Inter', sans-serif;
+    --radius: 10px; --radius-sm: 6px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+  .page { max-width: 860px; margin: 0 auto; padding: 60px 24px 100px; }
+  .hero { display: flex; align-items: flex-start; gap: 28px; padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-dim); border: 1.5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 22px; font-weight: 600; color: var(--accent); flex-shrink: 0; }
+  .hero-info { flex: 1; }
+  .hero-info h1 { font-family: var(--font-head); font-size: 32px; font-weight: 600; color: #fff; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 10px; }
+  .roles { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .role-pill { font-size: 11px; font-weight: 500; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(31,204,138,0.25); }
+  .contacts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .contact-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-secondary); background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 3px 11px; transition: border-color 0.2s, color 0.2s; }
+  .contact-item:hover { border-color: var(--border-hover); color: var(--text-primary); }
+  .contact-item i { font-size: 13px; color: var(--accent); }
+  .nav { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 40px; position: sticky; top: 0; z-index: 10; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .nav-btn { font-family: var(--font-body); font-size: 12px; color: var(--text-secondary); background: none; border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; }
+  .nav-btn:hover, .nav-btn.active { color: var(--accent); border-color: rgba(31,204,138,0.4); background: var(--accent-dim2); }
+  .section { margin-bottom: 44px; scroll-margin-top: 70px; }
+  .section-label { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .section-label i { font-size: 14px; }
+  .about-text { font-size: 14px; color: #aaa; line-height: 1.8; max-width: 680px; }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 10px; transition: border-color 0.2s; }
+  .card:hover { border-color: var(--border-hover); }
+  .card:last-child { margin-bottom: 0; }
+  .exp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
+  .exp-title { font-family: var(--font-head); font-size: 15px; font-weight: 500; color: #fff; }
+  .exp-badge { font-size: 10px; padding: 2px 9px; border-radius: 20px; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(31,204,138,0.2); white-space: nowrap; flex-shrink: 0; }
+  .exp-company { font-size: 12px; color: var(--accent); margin-bottom: 8px; }
+  .exp-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px; }
+  .exp-tasks { list-style: none; }
+  .exp-tasks li { font-size: 13px; color: #777; padding-left: 16px; position: relative; line-height: 1.7; }
+  .exp-tasks li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 15px; line-height: 1.6; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .info-row { display: flex; gap: 10px; align-items: center; }
+  .info-label { font-size: 11px; color: var(--text-muted); min-width: 100px; }
+  .info-val { font-size: 13px; color: var(--text-primary); }
+  .profiles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .profile-link { display: flex; align-items: center; gap: 9px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: var(--text-secondary); font-size: 13px; transition: all 0.2s; }
+  .profile-link:hover { border-color: rgba(31,204,138,0.3); color: var(--accent); background: var(--accent-dim2); }
+  .profile-link i { font-size: 16px; color: var(--accent); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+  .skill-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border); transition: border-color 0.2s; }
+  .skill-item:hover { border-color: var(--border-hover); }
+  .skill-name { font-size: 12px; color: var(--text-primary); }
+  .skill-level { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
+  .skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .tags-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag { font-size: 12px; padding: 5px 12px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); transition: all 0.2s; }
+  .tag:hover { border-color: rgba(31,204,138,0.3); color: var(--accent); }
+  .edu-item { display: flex; gap: 16px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .edu-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .edu-year { font-size: 11px; color: var(--text-muted); min-width: 72px; padding-top: 2px; }
+  .edu-title { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 2px; }
+  .edu-org { font-size: 12px; color: var(--accent); margin-bottom: 4px; }
+  .edu-desc { font-size: 12px; color: #666; line-height: 1.6; }
+  .lang-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .lang-card { flex: 1; min-width: 110px; text-align: center; padding: 16px 12px; border-radius: var(--radius); background: var(--bg-card); border: 1px solid var(--border); transition: border-color 0.2s; }
+  .lang-card:hover { border-color: rgba(31,204,138,0.3); }
+  .lang-name { font-family: var(--font-head); font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 4px; }
+  .lang-level { font-size: 11px; color: var(--text-muted); }
+  .ref-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .ref-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .ref-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 7px; }
+  .ref-role { font-size: 13px; font-weight: 500; color: #ddd; }
+  .ref-org { font-size: 12px; color: var(--accent); }
+  .ref-contacts { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ref-contact { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-secondary); background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 2px 10px; }
+  .ref-contact i { font-size: 12px; color: var(--accent); }
+  .ref-contact a { color: inherit; text-decoration: none; }
+  .ref-contact a:hover { color: var(--accent); }
+  .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-name { font-family: var(--font-head); font-size: 13px; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 16px; }
+  .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #333; }
+  @media (max-width: 600px) {
+    .hero { flex-direction: column; gap: 16px; }
+    .hero-info h1 { font-size: 24px; }
+    .info-grid { grid-template-columns: 1fr; }
+    .profiles-grid { grid-template-columns: 1fr; }
+    .page { padding: 32px 16px 60px; }
+  }
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    padding: 16px 24px 0;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .lang-btn:hover {
+    border-color: rgba(31,204,138,0.4);
+    color: var(--accent);
+    background: var(--accent-dim2);
+  }
+  .lang-btn.active {
+    border-color: rgba(31,204,138,0.5);
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+  .lang-flag { font-size: 14px; line-height: 1; }
+  .lang-code { font-family: var(--font-head, 'Space Grotesk', sans-serif); }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LANGUAGE SWITCHER -->
+  <div class="lang-switcher">
+    <a class="lang-btn" href="index.html">
+      <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+    </a>
+    <a class="lang-btn active" href="resume_fr.html">
+      <span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span>
+    </a>
+    <a class="lang-btn" href="resume_ar.html">
+      <span class="lang-flag">🇩🇿</span><span class="lang-code">AR</span>
+    </a>
+  </div>
+
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar">NM</div>
+    <div class="hero-info">
+      <h1>Naceur Mohammed</h1>
+      <div class="roles">
+        <span class="role-pill">Technologue Créatif</span>
+        <span class="role-pill">Designer de Produits Numériques</span>
+        <span class="role-pill">Designer Visuel Technique</span>
+      </div>
+      <div class="contacts">
+        <span class="contact-item"><i class="ti ti-phone"></i>+213 793 037 595</span>
+        <span class="contact-item"><i class="ti ti-mail"></i>mr.yassinox@icloud.com</span>
+        <span class="contact-item"><i class="ti ti-map-pin"></i>Chlef, Algérie</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <button class="nav-btn active" onclick="scrollTo('about')">À propos</button>
+    <button class="nav-btn" onclick="scrollTo('info')">Infos</button>
+    <button class="nav-btn" onclick="scrollTo('profiles')">Profils</button>
+    <button class="nav-btn" onclick="scrollTo('experience')">Expérience</button>
+    <button class="nav-btn" onclick="scrollTo('education')">Formation</button>
+    <button class="nav-btn" onclick="scrollTo('certificates')">Certificats</button>
+    <button class="nav-btn" onclick="scrollTo('tools')">Outils</button>
+    <button class="nav-btn" onclick="scrollTo('skills')">Compétences</button>
+    <button class="nav-btn" onclick="scrollTo('languages')">Langues</button>
+    <button class="nav-btn" onclick="scrollTo('personality')">Personnalité</button>
+    <button class="nav-btn" onclick="scrollTo('reference')">Références</button>
+  </nav>
+
+  <!-- À PROPOS -->
+  <section class="section" id="about">
+    <div class="section-label"><i class="ti ti-user"></i>À propos de moi</div>
+    <p class="about-text">Designer spécialisé en arts visuels et développeur avec plus de 14 ans d'expérience en design graphique, alliant une maîtrise professionnelle de la 3D, du Motion Graphics et du Marketing Digital. Incluant 8+ années d'expérience pratique dans l'industrie céramique, couvrant les aspects artistiques, techniques et marketing du développement produit. L'expertise englobe la création de designs numériques, le profilage colorimétrique digital et la gestion des machines d'impression numérique, offrant des solutions visuelles innovantes et orientées marché.</p>
+  </section>
+
+  <!-- INFORMATIONS PERSONNELLES -->
+  <section class="section" id="info">
+    <div class="section-label"><i class="ti ti-id"></i>Informations personnelles</div>
+    <div class="card">
+      <div class="info-grid">
+        <div class="info-row"><span class="info-label">Date de naissance</span><span class="info-val">10 / 09 / 1992</span></div>
+        <div class="info-row"><span class="info-label">Nationalité</span><span class="info-val">Algérienne</span></div>
+        <div class="info-row"><span class="info-label">Situation</span><span class="info-val">Marié</span></div>
+        <div class="info-row"><span class="info-label">Permis</span><span class="info-val">Catégorie B</span></div>
+        <div class="info-row"><span class="info-label">Résidence</span><span class="info-val">Chlef, Algérie</span></div>
+        <div class="info-row"><span class="info-label">Mobilité</span><span class="info-val">Disponible</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILS EN LIGNE -->
+  <section class="section" id="profiles">
+    <div class="section-label"><i class="ti ti-world"></i>Profils en ligne</div>
+    <div class="profiles-grid">
+      <a class="profile-link" href="https://github.com/MrYassinox" target="_blank"><i class="ti ti-brand-github"></i>github.com/MrYassinox</a>
+      <a class="profile-link" href="https://linkedin.com/in/MrYassinox" target="_blank"><i class="ti ti-brand-linkedin"></i>linkedin.com/MrYassinox</a>
+      <a class="profile-link" href="https://behance.net/MrYassinox" target="_blank"><i class="ti ti-brand-behance"></i>behance.net/MrYassinox</a>
+      <a class="profile-link" href="https://instagram.com/Mr.Yassinox" target="_blank"><i class="ti ti-brand-instagram"></i>instagram.com/Mr.Yassinox</a>
+      <a class="profile-link" href="https://facebook.com/Mr.Yassinox.NM" target="_blank"><i class="ti ti-brand-facebook"></i>facebook.com/Mr.Yassinox.NM</a>
+    </div>
+  </section>
+
+  <!-- EXPÉRIENCE -->
+  <section class="section" id="experience">
+    <div class="section-label"><i class="ti ti-briefcase"></i>Expérience professionnelle</div>
+
+    <div class="card">
+      <div class="exp-head">
+        <span class="exp-title">Designer Graphique Senior</span>
+        <span class="exp-badge">Nov 2025 – Présent</span>
+      </div>
+      <div class="exp-company">NCM Céramique Si-Mustapha — Boumerdes, Algérie</div>
+      <div class="exp-desc">Entreprise de fabrication céramique. Poste actuel : designer graphique senior et chargé du marketing digital.</div>
+    </div>
+
+    <div class="card">
+      <div class="exp-head">
+        <span class="exp-title">Designer Graphique Senior</span>
+        <span class="exp-badge">Nov 2023 – Août 2025</span>
+      </div>
+      <div class="exp-company">Poleceram — Bordj Bou Arreridj, Algérie</div>
+      <div class="exp-desc">Entreprise de fabrication céramique. Responsable d'un large éventail de tâches de design, notamment :</div>
+      <ul class="exp-tasks">
+        <li>Création et développement de tous types de designs pour carreaux céramiques numériques</li>
+        <li>Création et développement de brochures, livres, roll-ups et autres supports imprimés</li>
+        <li>Création de scènes 3D pour la présentation et la modélisation de carreaux céramiques</li>
+        <li>Profilage pour machines à jet d'encre et gestion des couleurs céramiques</li>
+        <li>Création de designs publicitaires et gestion des réseaux sociaux</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="exp-head">
+        <span class="exp-title">Designer Graphique</span>
+        <span class="exp-badge">Mar 2018 – Nov 2023</span>
+      </div>
+      <div class="exp-company">Chlef Ceramic Moderne — Chlef, Algérie</div>
+      <div class="exp-desc">5+ années en usine céramique. Responsable de :</div>
+      <ul class="exp-tasks">
+        <li>Création et développement de designs pour carreaux, textures, brochures, livres et visuels 3D</li>
+        <li>Création et gestion des réseaux sociaux</li>
+        <li>Définition et gestion des profils couleur pour machines à jet d'encre</li>
+        <li>Technicien responsable de l'imprimante numérique (Machine à projection numérique)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="exp-head">
+        <span class="exp-title">Agent de Sécurité</span>
+        <span class="exp-badge">Juin 2014 – Oct 2017</span>
+      </div>
+      <div class="exp-company">Secur Group SARL — Alger, Algérie</div>
+      <div class="exp-desc">3 années dans le domaine de la sécurité, protection et défense dans un port à Alger, sous la supervision de la Direction de la Garde des Propriétés et de la Défense.</div>
+    </div>
+  </section>
+
+  <!-- FORMATION -->
+  <section class="section" id="education">
+    <div class="section-label"><i class="ti ti-school"></i>Formation</div>
+    <div class="card">
+      <div class="edu-item">
+        <div class="edu-year">1997 – 2008</div>
+        <div>
+          <div class="edu-title">Collège d'Enseignement Moyen</div>
+          <div class="edu-org">Diplôme de l'Enseignement Moyen</div>
+          <div class="edu-desc">Cycle d'enseignement moyen de 4 ans.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATS -->
+  <section class="section" id="certificates">
+    <div class="section-label"><i class="ti ti-certificate"></i>Certificats</div>
+    <div class="card">
+      <div class="edu-item">
+        <div class="edu-year">Mai 2017</div>
+        <div>
+          <div class="edu-title">Marketing Digital</div>
+          <div class="edu-org">Google Digital Garage / The Open University</div>
+          <div class="edu-desc">Certificat en fondamentaux du marketing digital. Approuvé par le PDG iab Europe & Président Google EMEA. ID : YQA86Z9LF</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">Déc 2017</div>
+        <div>
+          <div class="edu-title">Conducteur d'Engins</div>
+          <div class="edu-org">EPFP Akbache</div>
+          <div class="edu-desc">Certificat de qualification en conduite et maintenance d'engins de travaux publics — chargeuse (Rétro Chargeur), chariot élévateur (Cariste), grue fixe (Tour de grue).</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">Mai 2020</div>
+        <div>
+          <div class="edu-title">Analyse Marketing</div>
+          <div class="edu-org">Coursera / Université de Virginie</div>
+          <div class="edu-desc">Certificat en analyse marketing. ID : L4TYWNR2ZKXU</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">Mai 2020</div>
+        <div>
+          <div class="edu-title">Le Langage de la Forme et du Sens en Design</div>
+          <div class="edu-org">Coursera / Institut CalArts</div>
+          <div class="edu-desc">Certificat en forme et sens du design. ID : 6V7N8BLZC3MX</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">Mai 2020</div>
+        <div>
+          <div class="edu-title">Faire de l'Architecture</div>
+          <div class="edu-org">Coursera / IE Business School & IE École d'Architecture & Design</div>
+          <div class="edu-desc">Certificat en architecture. ID : NCD2VHYMHVWH</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">Fév 2026</div>
+        <div>
+          <div class="edu-title">Designer Graphique</div>
+          <div class="edu-org">LPT School</div>
+          <div class="edu-desc">Certificat de qualification en design graphique délivré par LPT School, école privée de formation professionnelle agréée par l'État, spécialisée dans la formation de leaders.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTILS -->
+  <section class="section" id="tools">
+    <div class="section-label"><i class="ti ti-tools"></i>Compétences & outils</div>
+    <div class="skills-grid">
+      <div class="skill-item"><span class="skill-name">Adobe Photoshop</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
+      <div class="skill-item"><span class="skill-name">Adobe Lightroom</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
+      <div class="skill-item"><span class="skill-name">Adobe Illustrator</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
+      <div class="skill-item"><span class="skill-name">Adobe InDesign</span><span class="skill-level"><span class="skill-dot"></span>Sénior</span></div>
+      <div class="skill-item"><span class="skill-name">Adobe Première</span><span class="skill-level"><span class="skill-dot"></span>Sénior</span></div>
+      <div class="skill-item"><span class="skill-name">Adobe After Effects</span><span class="skill-level"><span class="skill-dot"></span>Avancé</span></div>
+      <div class="skill-item"><span class="skill-name">Adobe Audition</span><span class="skill-level"><span class="skill-dot"></span>Débutant</span></div>
+      <div class="skill-item"><span class="skill-name">Adobe XD</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
+      <div class="skill-item"><span class="skill-name">Figma</span><span class="skill-level"><span class="skill-dot"></span>Sénior</span></div>
+      <div class="skill-item"><span class="skill-name">SketchUp 3D</span><span class="skill-level"><span class="skill-dot"></span>Sénior</span></div>
+      <div class="skill-item"><span class="skill-name">Blender 3D</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
+      <div class="skill-item"><span class="skill-name">Unreal Engine 3D</span><span class="skill-level"><span class="skill-dot"></span>Avancé</span></div>
+      <div class="skill-item"><span class="skill-name">Twinmotion 3D</span><span class="skill-level"><span class="skill-dot"></span>Sénior</span></div>
+      <div class="skill-item"><span class="skill-name">Davinci Resolve</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
+      <div class="skill-item"><span class="skill-name">Microsoft Office</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES PROFESSIONNELLES -->
+  <section class="section" id="skills">
+    <div class="section-label"><i class="ti ti-stars"></i>Compétences professionnelles</div>
+    <div class="tags-wrap">
+      <span class="tag">Designer Numérique Multidisciplinaire</span>
+      <span class="tag">Artiste 3D + Motion & Design Visuel</span>
+      <span class="tag">Designer UI/UX + Prototype Interactif</span>
+      <span class="tag">Développeur Full-stack</span>
+      <span class="tag">Production Céramique Industrielle</span>
+      <span class="tag">Spécialiste en Visualisation Industrielle</span>
+      <span class="tag">Marketing + Communication Visuelle</span>
+      <span class="tag">Gestion des Couleurs</span>
+    </div>
+  </section>
+
+  <!-- LANGUES -->
+  <section class="section" id="languages">
+    <div class="section-label"><i class="ti ti-language"></i>Langues</div>
+    <div class="lang-row">
+      <div class="lang-card"><div class="lang-name">Arabe</div><div class="lang-level">Langue maternelle</div></div>
+      <div class="lang-card"><div class="lang-name">Anglais</div><div class="lang-level">Courant, écrit</div></div>
+      <div class="lang-card"><div class="lang-name">Français</div><div class="lang-level">Courant</div></div>
+    </div>
+  </section>
+
+  <!-- PERSONNALITÉ & INTÉRÊTS -->
+  <section class="section" id="personality">
+    <div class="section-label"><i class="ti ti-mood-happy"></i>Personnalité</div>
+    <div class="tags-wrap" style="margin-bottom:20px;">
+      <span class="tag">Bonne condition physique</span>
+      <span class="tag">Très motivé</span>
+      <span class="tag">Travaille jour et nuit</span>
+      <span class="tag">Disponible pour voyager</span>
+      <span class="tag">Responsabilité professionnelle</span>
+    </div>
+    <div class="section-label" style="margin-top:24px;"><i class="ti ti-heart"></i>Centres d'intérêt</div>
+    <div class="tags-wrap">
+      <span class="tag"><i class="ti ti-plane" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Voyages</span>
+      <span class="tag"><i class="ti ti-camera" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Photographie</span>
+      <span class="tag"><i class="ti ti-headphones" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Musique</span>
+      <span class="tag"><i class="ti ti-search" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Recherche</span>
+    </div>
+  </section>
+
+  <!-- RÉFÉRENCES -->
+  <section class="section" id="reference">
+    <div class="section-label"><i class="ti ti-address-book"></i>Références</div>
+    <div class="card">
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Designer Graphique Senior & Chargé Marketing Digital</span><span class="ref-org">NCM Céramique Si-Mustapha</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 024 71 07 36</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>info@ncm-simustapha.dz</span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Designer Graphique Senior</span><span class="ref-org">Poleceram</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0660 885 347</span>
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0661 313 483</span>
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0560 153 845</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>info@poleceram.com</span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Infographiste</span><span class="ref-org">Chlef Ceramic Moderne</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 027 71 14 36</span>
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 561 61 38 33</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>ccm@chlef-ceramic-moderne.com</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>rahmoune@yahoo.com</span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Designer Graphique</span><span class="ref-org">LPT School</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0560 14 18 56</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>info@lptschool.dz</span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Certificat Marketing Digital</span><span class="ref-org">Google Digital Garage / The Open University</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-hash"></i>ID : YQA86Z9LF</span>
+          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/34WEcN" target="_blank">bit.ly/34WEcN</a></span>
+          <span class="ref-contact"><i class="ti ti-building"></i>PDG iab Europe</span>
+          <span class="ref-contact"><i class="ti ti-building"></i>Président Google EMEA</span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Certificat Analyse Marketing</span><span class="ref-org">Coursera / Université de Virginie</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-hash"></i>ID : L4TYWNR2ZKXU</span>
+          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/2XqT97V" target="_blank">bit.ly/2XqT97V</a></span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Certificat Langage de la Forme et du Sens</span><span class="ref-org">Coursera / CalArts Institute</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-hash"></i>ID : 6V7N8BLZC3MX</span>
+          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/371eV5i" target="_blank">bit.ly/371eV5i</a></span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Certificat Faire de l'Architecture</span><span class="ref-org">Coursera / IE Business School & IE École d'Architecture & Design</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-hash"></i>ID : NCD2VHYMHVWH</span>
+          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/3eHxMVt" target="_blank">bit.ly/3eHxMVt</a></span>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-head"><span class="ref-role">Certificat Conducteur d'Engins</span><span class="ref-org">EPFP Akbache</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 035 73 62 33</span>
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 675 03 34 69</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>e.akbache@yahoo.com</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>contact@epfpa-dz.com</span>
+          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://m.me/epfp.akbache" target="_blank">m.me/epfp.akbache</a></span>
+        </div>
+      </div>
+      <div class="ref-item" style="border-bottom:none;padding-bottom:0;margin-bottom:0;">
+        <div class="ref-head"><span class="ref-role">Agent de Sécurité</span><span class="ref-org">Secur Group SARL</span></div>
+        <div class="ref-contacts">
+          <span class="ref-contact"><i class="ti ti-phone"></i>+213 770 11 58 16</span>
+          <span class="ref-contact"><i class="ti ti-mail"></i>d.emploi@securgroup.org</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-name">Naceur Mohammed (Yassin) &copy; 2026</span>
+    <div class="footer-links">
+      <a href="https://github.com/MrYassinox" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/MrYassinox" target="_blank">LinkedIn</a>
+      <a href="https://behance.net/MrYassinox" target="_blank">Behance</a>
+      <a href="mailto:mr.yassinox@icloud.com">E-mail</a>
+    </div>
+  </footer>
+
+</div>
+<script>
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+  const sections = document.querySelectorAll('.section');
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        navBtns.forEach(b => { b.classList.toggle('active', b.getAttribute('onclick').includes("'" + id + "'")); });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

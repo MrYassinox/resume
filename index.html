@@ -253,11 +253,63 @@
     .profiles-grid { grid-template-columns: 1fr; }
     .page { padding: 32px 16px 60px; }
   }
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    padding: 16px 24px 0;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .lang-btn:hover {
+    border-color: rgba(31,204,138,0.4);
+    color: var(--accent);
+    background: var(--accent-dim2);
+  }
+  .lang-btn.active {
+    border-color: rgba(31,204,138,0.5);
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+  .lang-flag { font-size: 14px; line-height: 1; }
+  .lang-code { font-family: var(--font-head, 'Space Grotesk', sans-serif); }
+
 </style>
 </head>
 <body>
 
 <div class="page">
+
+  <!-- LANGUAGE SWITCHER -->
+  <div class="lang-switcher">
+    <a class="lang-btn active" href="index.html">
+      <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+    </a>
+    <a class="lang-btn" href="resume_fr.html">
+      <span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span>
+    </a>
+    <a class="lang-btn" href="resume_ar.html">
+      <span class="lang-flag">🇩🇿</span><span class="lang-code">AR</span>
+    </a>
+  </div>
+
 
   <!-- HERO -->
   <div class="hero">
