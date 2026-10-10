@@ -1,101 +1,259 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html data-theme="dark" lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Naceur Mohammed (Yassin) — CV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --bg: #0a0a0a; --bg-card: #111111; --bg-hover: #181818;
-    --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
-    --accent: #1fcc8a; --accent-dim: rgba(31,204,138,0.12); --accent-dim2: rgba(31,204,138,0.06);
-    --text-primary: #f0f0f0; --text-secondary: #888; --text-muted: #555;
-    --font-head: 'Space Grotesk', sans-serif; --font-body: 'Inter', sans-serif;
-    --radius: 10px; --radius-sm: 6px;
+    --bg: #0a0a0a;
+    --bg-card: #111111;
+    --bg-hover: #181818;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.14);
+    --accent: #1fcc8a;
+    --accent-dim: rgba(31,204,138,0.12);
+    --accent-dim2: rgba(31,204,138,0.06);
+    --text-primary: #f0f0f0;
+    --text-secondary: #888;
+    --text-muted: #555;
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --radius: 10px;
+    --radius-sm: 6px;
   }
+
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── LAYOUT ── */
   .page { max-width: 860px; margin: 0 auto; padding: 60px 24px 100px; }
+
+  /* ── HERO ── */
   .hero { display: flex; align-items: flex-start; gap: 28px; padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
-  .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-dim); border: 1.5px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 22px; font-weight: 600; color: var(--accent); flex-shrink: 0; }
+
+  .avatar-container {
+    /* object-fit: cover; */
+    overflow: hidden;
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--accent-dim);
+    border: 1.5px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-size: 22px; font-weight: 600;
+    color: var(--accent); flex-shrink: 0;
+  }
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    /* Zoom in (e.g., 1.5 = 150% zoom) and Move together (order matters!) */
+    /* translate(X, Y) -> moves image 10px right and 20px up */
+    transform: scale(1.4) translate(0px, -2px);
+    /* Optional: Adjust the focal point if the face is off-center (X, Y) */
+    transform-origin: center center; 
+  }
+
   .hero-info { flex: 1; }
-  .hero-info h1 { font-family: var(--font-head); font-size: 32px; font-weight: 600; color: #fff; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 10px; }
+
+  .hero-info h1 {
+    font-family: var(--font-head);
+    font-size: 32px; font-weight: 600;
+    color: var(--text-secondary); letter-spacing: -0.5px;
+    line-height: 1.2; margin-bottom: 10px;
+  }
+
   .roles { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-  .role-pill { font-size: 11px; font-weight: 500; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(31,204,138,0.25); }
+
+  .role-pill {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+    padding: 3px 10px; border-radius: 20px;
+    background: var(--accent-dim); color: var(--accent);
+    border: 1px solid rgba(31,204,138,0.25);
+  }
+
   .contacts { display: flex; flex-wrap: wrap; gap: 8px; }
-  .contact-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-secondary); background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 3px 11px; transition: border-color 0.2s, color 0.2s; }
+
+  .contact-item {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 12px; color: var(--text-secondary);
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 3px 11px;
+    transition: border-color 0.2s, color 0.2s;
+  }
   .contact-item:hover { border-color: var(--border-hover); color: var(--text-primary); }
-  .contact-item i { font-size: 13px; color: var(--accent); }
-  .nav { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 40px; position: sticky; top: 0; z-index: 10; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); padding: 10px 0; border-bottom: 1px solid var(--border); }
-  .nav-btn { font-family: var(--font-body); font-size: 12px; color: var(--text-secondary); background: none; border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; cursor: pointer; transition: all 0.2s; }
+
+  /* ── NAV ── */
+  .nav {
+    display: flex; flex-wrap: wrap; gap: 4px;
+    margin-bottom: 40px;
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-btn {
+    font-family: var(--font-body); font-size: 12px;
+    color: var(--text-secondary); background: none;
+    border: 1px solid var(--border); border-radius: 20px;
+    padding: 4px 12px; cursor: pointer;
+    transition: all 0.2s;
+  }
   .nav-btn:hover, .nav-btn.active { color: var(--accent); border-color: rgba(31,204,138,0.4); background: var(--accent-dim2); }
+
+  /* ── SECTION ── */
   .section { margin-bottom: 44px; scroll-margin-top: 70px; }
-  .section-label { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .section-label i { font-size: 14px; }
-  .about-text { font-size: 14px; color: #aaa; line-height: 1.8; max-width: 680px; }
-  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 10px; transition: border-color 0.2s; }
+
+  .section-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-size: 14px; color: #aaa; line-height: 1.8;
+    max-width: 680px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
   .card:hover { border-color: var(--border-hover); }
   .card:last-child { margin-bottom: 0; }
+
+  /* ── EXPERIENCE ── */
   .exp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
   .exp-title { font-family: var(--font-head); font-size: 15px; font-weight: 500; color: #fff; }
-  .exp-badge { font-size: 10px; padding: 2px 9px; border-radius: 20px; background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(31,204,138,0.2); white-space: nowrap; flex-shrink: 0; }
+  .exp-badge {
+    font-size: 10px; padding: 2px 9px; border-radius: 20px;
+    background: var(--accent-dim); color: var(--accent);
+    border: 1px solid rgba(31,204,138,0.2); white-space: nowrap; flex-shrink: 0;
+  }
   .exp-company { font-size: 12px; color: var(--accent); margin-bottom: 8px; }
   .exp-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px; }
   .exp-tasks { list-style: none; }
-  .exp-tasks li { font-size: 13px; color: #777; padding-left: 16px; position: relative; line-height: 1.7; }
+  .exp-tasks li {
+    font-size: 13px; color: #777; padding-left: 16px;
+    position: relative; line-height: 1.7;
+  }
   .exp-tasks li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 15px; line-height: 1.6; }
+
+  /* ── INFO GRID ── */
   .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .info-row { display: flex; gap: 10px; align-items: center; }
-  .info-label { font-size: 11px; color: var(--text-muted); min-width: 100px; }
+  .info-label { font-size: 11px; color: var(--text-muted); min-width: 78px; }
   .info-val { font-size: 13px; color: var(--text-primary); }
+
+  /* ── PROFILES ── */
   .profiles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .profile-link { display: flex; align-items: center; gap: 9px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border); text-decoration: none; color: var(--text-secondary); font-size: 13px; transition: all 0.2s; }
+  .profile-link {
+    display: flex; align-items: center; gap: 9px;
+    padding: 10px 14px; border-radius: var(--radius-sm);
+    background: var(--bg-card); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text-secondary); font-size: 13px;
+    transition: all 0.2s;
+  }
   .profile-link:hover { border-color: rgba(31,204,138,0.3); color: var(--accent); background: var(--accent-dim2); }
-  .profile-link i { font-size: 16px; color: var(--accent); }
+
+  /* ── SKILLS GRID ── */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
-  .skill-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border-radius: var(--radius-sm); background: var(--bg-card); border: 1px solid var(--border); transition: border-color 0.2s; }
+  .skill-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 12px; border-radius: var(--radius-sm);
+    background: var(--bg-card); border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
   .skill-item:hover { border-color: var(--border-hover); }
   .skill-name { font-size: 12px; color: var(--text-primary); }
   .skill-level { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
   .skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+  /* ── TAGS ── */
   .tags-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
-  .tag { font-size: 12px; padding: 5px 12px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-secondary); transition: all 0.2s; }
+  .tag {
+    font-size: 12px; padding: 5px 12px; border-radius: 20px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-secondary); transition: all 0.2s;
+  }
   .tag:hover { border-color: rgba(31,204,138,0.3); color: var(--accent); }
+
+  /* ── EDU ── */
   .edu-item { display: flex; gap: 16px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
   .edu-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
   .edu-year { font-size: 11px; color: var(--text-muted); min-width: 72px; padding-top: 2px; }
   .edu-title { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 2px; }
   .edu-org { font-size: 12px; color: var(--accent); margin-bottom: 4px; }
   .edu-desc { font-size: 12px; color: #666; line-height: 1.6; }
+
+  /* ── LANG ── */
   .lang-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .lang-card { flex: 1; min-width: 110px; text-align: center; padding: 16px 12px; border-radius: var(--radius); background: var(--bg-card); border: 1px solid var(--border); transition: border-color 0.2s; }
+  .lang-card {
+    flex: 1; min-width: 110px; text-align: center;
+    padding: 16px 12px; border-radius: var(--radius);
+    background: var(--bg-card); border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
   .lang-card:hover { border-color: rgba(31,204,138,0.3); }
   .lang-name { font-family: var(--font-head); font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 4px; }
   .lang-level { font-size: 11px; color: var(--text-muted); }
+
+  /* ── REFERENCE ── */
   .ref-item { padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
   .ref-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
   .ref-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 7px; }
-  .ref-role { font-size: 13px; font-weight: 500; color: #ddd; }
+  .ref-role { font-size: 13px; font-weight: 400; color: var(--text-secondary); }
   .ref-org { font-size: 12px; color: var(--accent); }
   .ref-contacts { display: flex; flex-wrap: wrap; gap: 6px; }
-  .ref-contact { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text-secondary); background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 2px 10px; }
-  .ref-contact i { font-size: 12px; color: var(--accent); }
+  .ref-contact {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11px; color: var(--text-secondary);
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 20px; padding: 2px 10px;
+  }
   .ref-contact a { color: inherit; text-decoration: none; }
   .ref-contact a:hover { color: var(--accent); }
-  .footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .ref-role:hover { border-color: var(--border-hover); color: var(--text-primary); }
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
   .footer-name { font-family: var(--font-head); font-size: 13px; color: var(--text-muted); }
   .footer-links { display: flex; gap: 16px; }
   .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--accent); }
+
+  /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #333; }
+
   @media (max-width: 600px) {
     .hero { flex-direction: column; gap: 16px; }
     .hero-info h1 { font-size: 24px; }
@@ -118,7 +276,7 @@
     align-items: center;
     gap: 5px;
     padding: 5px 12px;
-    border-radius: 20px;
+    border-radius: 30px;
     border: 1px solid var(--border);
     background: var(--bg-card);
     color: var(--text-secondary);
@@ -141,39 +299,296 @@
   .lang-flag { font-size: 14px; line-height: 1; }
   .lang-code { font-family: var(--font-head, 'Space Grotesk', sans-serif); }
 
+
+  /* ── PDF BUTTON ── */
+  .pdf-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    border-radius: 24px;
+    background: var(--accent);
+    color: #051f14;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(31,204,138,0.35);
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .pdf-btn:hover {
+    background: #25e89c;
+    box-shadow: 0 6px 28px rgba(31,204,138,0.5);
+    transform: translateY(-1px);
+  }
+  .pdf-btn:active { transform: translateY(0); }
+  .pdf-btn.loading { opacity: 0.75; cursor: not-allowed; pointer-events: none; }
+
+
+  /* ── SVG ICONS ── */
+  .icon { display:inline-block; width:1em; height:1em; stroke:currentColor; fill:none; vertical-align:middle; flex-shrink:0; }
+  .section-label .icon { width:14px; height:14px; }
+  .contact-item .icon  { width:13px; height:13px; }
+  .profile-link .icon  { width:16px; height:16px; }
+  .ref-contact .icon   { width:12px; height:12px; }
+  .pdf-btn .icon       { width:16px; height:16px; }
+  .theme-btn .icon     { width:15px; height:15px; }
+  @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  .icon-spin { animation:spin 1s linear infinite; transform-origin:center; }
+
+  /* ── THEME TOGGLE BTN ── */
+  .theme-btn {
+    display:flex; align-items:center; justify-content:center;
+    width:32px; height:32px; border-radius:50%;
+    border:1px solid var(--border); background:var(--bg-card);
+    color:var(--text-secondary); cursor:pointer;
+    transition:all 0.2s; padding:0; flex-shrink:0;
+  }
+  .theme-btn:hover { border-color:rgba(31,204,138,0.4); color:var(--accent); background:var(--accent-dim2); }
+  [data-theme="dark"]  .icon-sun  { display:none; }
+  [data-theme="light"] .icon-moon { display:none; }
+  [data-theme="print"] .icon-sun  { display:none; }
+
+  /* ── LIGHT THEME ── */
+  [data-theme="light"] {
+    --bg:#f9f9f9; --bg-card:#ffffff; --bg-hover:#ebebeb;
+    --border:rgba(0,0,0,0.09); --border-hover:rgba(0,0,0,0.18);
+    --accent:#0d9e6a; --accent-dim:rgba(13,158,106,0.1); --accent-dim2:rgba(13,158,106,0.05);
+    --text-primary:#111111; --text-secondary:#555555; --text-muted:#9a9a9a;
+  }
+  [data-theme="light"] body         { background:var(--bg); }
+  [data-theme="light"] .nav         { background:rgba(244,244,245,0.92); }
+  [data-theme="light"] .about-text  { color:#444; }
+  [data-theme="light"] .exp-tasks li{ color:#555; }
+  [data-theme="light"] .edu-desc    { color:#777; }
+  [data-theme="light"] .exp-title,
+  [data-theme="light"] .edu-title,
+  [data-theme="light"] .lang-name   { color:#111; }
+  [data-theme="light"] .role-pill   { background:rgba(13,158,106,0.1); color:#0d7a52; border-color:rgba(13,158,106,0.3); }
+  [data-theme="light"] .exp-badge   { background:rgba(13,158,106,0.1); color:#0a7a52; }
+  [data-theme="light"] .pdf-btn     { box-shadow:0 4px 20px rgba(13,158,106,0.3); }
+
+  /* ── PRINT THEME (forced white) ── */
+  [data-theme="print"] {
+    --bg:#ffffff; --bg-card:#f5f5f5; --bg-hover:#ebebeb;
+    --border:rgba(0,0,0,0.1); --border-hover:rgba(0,0,0,0.2);
+    --accent:#0d9e6a; --accent-dim:rgba(13,158,106,0.1); --accent-dim2:rgba(13,158,106,0.05);
+    --text-primary:#111111; --text-secondary:#555555; --text-muted:#9a9a9a;
+  }
+  [data-theme="print"] body          { background:#fff; }
+  [data-theme="print"] .nav          { background:rgba(255,255,255,0.95); }
+  [data-theme="print"] .about-text   { color:#444; }
+  [data-theme="print"] .exp-tasks li { color:#555; }
+  [data-theme="print"] .edu-desc     { color:#777; }
+  [data-theme="print"] .exp-title,
+  [data-theme="print"] .edu-title,
+  [data-theme="print"] .lang-name    { color:#111; }
+  [data-theme="print"] .role-pill    { background:rgba(13,158,106,0.1); color:#0d7a52; border-color:rgba(13,158,106,0.3); }
+  [data-theme="print"] .exp-badge    { background:rgba(13,158,106,0.1); color:#0a7a52; }
+  [data-theme="print"] .pdf-btn,
+  [data-theme="print"] .lang-switcher,
+  [data-theme="print"] .theme-btn    { display:none !important; }
+
+  /* ── @MEDIA PRINT ── */
+
+
+  /* ═══════════════════════════════════════════════
+     PRINT VIEW — Professional A4 Layout
+  ═══════════════════════════════════════════════ */
+  #print-view { display: none; }
+
+  @media print {
+    @page { size: A4; margin: 12mm 14mm; }
+
+    /* Hide screen UI */
+    .page, .nav, .pdf-btn, .lang-switcher, .theme-btn { display: none !important; }
+
+    /* Show print layout */
+    #print-view {
+      display: block !important;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 9pt;
+      color: #1a1a1a;
+      line-height: 1.5;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── HEADER ── */
+    .pv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 2.5px solid #0d9e6a;
+    }
+    .pv-name {
+      font-size: 20pt; font-weight: 700; color: #0a0a0a;
+      margin: 0; letter-spacing: -0.5px; line-height: 1.1;
+    }
+    .pv-title { font-size: 8.5pt; color: #0d9e6a; margin: 3px 0 0; }
+    .pv-contact-line {
+      font-size: 7.5pt; color: #444;
+      text-align: right; margin-bottom: 2px;
+      display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;
+    }
+    .pv-contact-line span { display: flex; align-items: center; gap: 3px; }
+    .pv-social-line { font-size: 7pt; color: #888; text-align: right; }
+
+    /* ── BODY: 2 COLUMNS ── */
+    .pv-body {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .pv-sidebar {
+      width: 168px;
+      flex-shrink: 0;
+      border-right: 1px solid #e8e8e8;
+      padding-right: 12px;
+    }
+
+    /* ── RIGHT MAIN ── */
+    .pv-main { flex: 1; min-width: 0; }
+
+    /* ── SECTION ── */
+    .pv-section { margin-bottom: 9px; break-inside: avoid; }
+    .pv-section-title {
+      font-size: 7.5pt; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em;
+      color: #0d9e6a; margin: 0 0 5px;
+      padding-bottom: 2px; border-bottom: 1px solid #d8f0e6;
+    }
+
+    /* ── PERSONAL INFO ── */
+    .pv-info-row { display: flex; gap: 5px; margin-bottom: 2px; font-size: 8pt; }
+    .pv-info-label { color: #999; min-width: 60px; font-size: 7.5pt; }
+
+    /* ── LANGUAGES ── */
+    .pv-lang-row {
+      display: flex; justify-content: space-between;
+      margin-bottom: 3px; font-size: 8pt;
+      padding-bottom: 2px; border-bottom: 1px solid #f0f0f0;
+    }
+    .pv-lang-row:last-child { border-bottom: none; }
+    .pv-lang-name { font-weight: 500; }
+    .pv-lang-level { color: #888; font-size: 7.5pt; }
+
+    /* ── LISTS ── */
+    .pv-list { margin: 0; padding-left: 11px; font-size: 8pt; }
+    .pv-list li { margin-bottom: 1px; color: #333; }
+
+    /* ── PROFILES ── */
+    .pv-profile { font-size: 7.5pt; color: #0d9e6a; margin-bottom: 2px; }
+
+    /* ── ABOUT ── */
+    .pv-about {
+      font-size: 8.5pt; color: #333;
+      line-height: 1.6; margin: 0; text-align: justify;
+    }
+
+    /* ── EXPERIENCE ── */
+    .pv-exp { margin-bottom: 7px; break-inside: avoid; padding-bottom: 6px; border-bottom: 1px solid #f0f0f0; }
+    .pv-exp:last-child { border-bottom: none; padding-bottom: 0; }
+    .pv-exp-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline; margin-bottom: 1px; gap: 8px;
+    }
+    .pv-exp-title { font-weight: 600; font-size: 9pt; color: #111; }
+    .pv-exp-date  { font-size: 7.5pt; color: #0d9e6a; white-space: nowrap; flex-shrink: 0; }
+    .pv-exp-company { font-size: 7.5pt; color: #0d9e6a; margin-bottom: 3px; font-style: italic; }
+    .pv-exp-desc { font-size: 8pt; color: #444; margin: 0; }
+    .pv-exp-tasks { margin: 3px 0 0; padding-left: 12px; font-size: 8pt; color: #444; }
+    .pv-exp-tasks li { margin-bottom: 1px; }
+
+    /* ── EDUCATION ── */
+    .pv-edu { margin-bottom: 4px; break-inside: avoid; }
+    .pv-edu-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline; gap: 8px;
+    }
+    .pv-edu-title { font-weight: 500; font-size: 8.5pt; color: #111; }
+    .pv-edu-date  { font-size: 7.5pt; color: #888; white-space: nowrap; flex-shrink: 0; }
+    .pv-edu-org   { font-size: 7.5pt; color: #777; margin-top: 1px; }
+
+    /* ── TOOLS GRID ── */
+    .pv-skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px 6px;
+    }
+    .pv-skill {
+      display: flex; justify-content: space-between;
+      font-size: 7.5pt; padding: 1px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .pv-skill-name { color: #222; }
+    .pv-skill-level { color: #0d9e6a; font-size: 7pt; }
+
+    /* ── PRO SKILLS TAGS ── */
+    .pv-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+    .pv-tag {
+      font-size: 7.5pt; padding: 2px 7px;
+      border-radius: 10px; background: #f0faf5;
+      border: 0.5px solid #b8e0cb; color: #1a5c3a;
+    }
+
+    /* ── FOOTER ── */
+    .pv-footer {
+      margin-top: 8px; padding-top: 4px;
+      border-top: 1px solid #e0e0e0;
+      display: flex; justify-content: space-between;
+      font-size: 7pt; color: #bbb;
+    }
+  }
+
 </style>
 </head>
 <body>
+
 <div class="page">
 
   <!-- LANGUAGE SWITCHER -->
   <div class="lang-switcher">
-    <a class="lang-btn" href="index.html">
+    <a class="lang-btn active" href="index.html">
       <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
     </a>
-    <a class="lang-btn active" href="resume_fr.html">
+    <a class="lang-btn" href="resume_fr.html">
       <span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span>
     </a>
     <a class="lang-btn" href="resume_ar.html">
       <span class="lang-flag">🇩🇿</span><span class="lang-code">AR</span>
     </a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme"><svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg><svg class="icon icon-sun"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="4"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg></button>
   </div>
-
 
   <!-- HERO -->
   <div class="hero">
-    <div class="avatar">NM</div>
+    <!-- <div class="avatar">NM</div> -->
+    <div class="avatar-container">
+      <img src="avatar.jpg" alt="avatar" class="avatar-img">
+    </div>
     <div class="hero-info">
       <h1>Naceur Mohammed</h1>
+      <!-- <p>Creative Technologist / Digital Product Designer / Technical Visual Designer</p> -->
       <div class="roles">
         <span class="role-pill">Technologue Créatif</span>
         <span class="role-pill">Designer de Produits Numériques</span>
         <span class="role-pill">Designer Visuel Technique</span>
       </div>
       <div class="contacts">
-        <span class="contact-item"><i class="ti ti-phone"></i>+213 793 037 595</span>
-        <span class="contact-item"><i class="ti ti-mail"></i>mr.yassinox@icloud.com</span>
-        <span class="contact-item"><i class="ti ti-map-pin"></i>Chlef, Algérie</span>
+        <span class="contact-item"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 793 037 595</span>
+        <span class="contact-item"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>mr.yassinox@icloud.com</span>
+        <span class="contact-item"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="11" r="3"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg>Chlef, Algeria</span>
       </div>
     </div>
   </div>
@@ -195,13 +610,13 @@
 
   <!-- À PROPOS -->
   <section class="section" id="about">
-    <div class="section-label"><i class="ti ti-user"></i>À propos de moi</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>À propos de moi</div>
     <p class="about-text">Designer spécialisé en arts visuels et développeur avec plus de 14 ans d'expérience en design graphique, alliant une maîtrise professionnelle de la 3D, du Motion Graphics et du Marketing Digital. Incluant 8+ années d'expérience pratique dans l'industrie céramique, couvrant les aspects artistiques, techniques et marketing du développement produit. L'expertise englobe la création de designs numériques, le profilage colorimétrique digital et la gestion des machines d'impression numérique, offrant des solutions visuelles innovantes et orientées marché.</p>
   </section>
 
   <!-- INFORMATIONS PERSONNELLES -->
   <section class="section" id="info">
-    <div class="section-label"><i class="ti ti-id"></i>Informations personnelles</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M15 8h2"/><path d="M15 11h2"/><path d="M7 16h10"/></svg>Informations personnelles</div>
     <div class="card">
       <div class="info-grid">
         <div class="info-row"><span class="info-label">Date de naissance</span><span class="info-val">10 / 09 / 1992</span></div>
@@ -216,23 +631,24 @@
 
   <!-- PROFILS EN LIGNE -->
   <section class="section" id="profiles">
-    <div class="section-label"><i class="ti ti-world"></i>Profils en ligne</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="9"/><line x1="3.6" y1="9" x2="20.4" y2="9"/><line x1="3.6" y1="15" x2="20.4" y2="15"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/></svg>Profils en ligne</div>
     <div class="profiles-grid">
-      <a class="profile-link" href="https://github.com/MrYassinox" target="_blank"><i class="ti ti-brand-github"></i>github.com/MrYassinox</a>
-      <a class="profile-link" href="https://linkedin.com/in/MrYassinox" target="_blank"><i class="ti ti-brand-linkedin"></i>linkedin.com/MrYassinox</a>
-      <a class="profile-link" href="https://behance.net/MrYassinox" target="_blank"><i class="ti ti-brand-behance"></i>behance.net/MrYassinox</a>
-      <a class="profile-link" href="https://instagram.com/Mr.Yassinox" target="_blank"><i class="ti ti-brand-instagram"></i>instagram.com/Mr.Yassinox</a>
-      <a class="profile-link" href="https://facebook.com/Mr.Yassinox.NM" target="_blank"><i class="ti ti-brand-facebook"></i>facebook.com/Mr.Yassinox.NM</a>
+      <a class="profile-link" href="https://github.com/MrYassinox" target="_blank"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg>github.com/MrYassinox</a>
+      <a class="profile-link" href="https://linkedin.com/in/MrYassinox" target="_blank"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 0 0 -4 0"/></svg>linkedin.com/MrYassinox</a>
+      <a class="profile-link" href="https://behance.net/MrYassinox" target="_blank"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 18v-12h4.5a3 3 0 0 1 0 6a3 3 0 0 1 0 6h-4.5z"/><line x1="3" y1="12" x2="7.5" y2="12"/><path d="M14 13h6a3 3 0 1 0 -6 0z"/><path d="M14 13a3 3 0 1 0 6 0"/><line x1="15" y1="6" x2="19" y2="6"/></svg>behance.net/MrYassinox</a>
+      <a class="profile-link" href="https://instagram.com/Mr.Yassinox" target="_blank"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="16.5" y1="7.5" x2="16.5" y2="7.501"/></svg>instagram.com/Mr.Yassinox</a>
+      <a class="profile-link" href="https://facebook.com/Mr.Yassinox.NM" target="_blank"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg>facebook.com/Mr.Yassinox.NM</a>
+      <a class="profile-link" href="https://shutterstock.com/g/MrYassinox" target="_blank"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg>shutterstock.com/MrYassinox</a>
     </div>
   </section>
 
   <!-- EXPÉRIENCE -->
   <section class="section" id="experience">
-    <div class="section-label"><i class="ti ti-briefcase"></i>Expérience professionnelle</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/><path d="M3 13a20 20 0 0 0 18 0"/></svg>Expérience professionnelle</div>
 
     <div class="card">
       <div class="exp-head">
-        <span class="exp-title">Designer Graphique Senior</span>
+        <span class="exp-title">Designer Graphique Senior & Chargé du Marketing Digital</span>
         <span class="exp-badge">Nov 2025 – Présent</span>
       </div>
       <div class="exp-company">NCM Céramique Si-Mustapha — Boumerdes, Algérie</div>
@@ -282,7 +698,7 @@
 
   <!-- FORMATION -->
   <section class="section" id="education">
-    <div class="section-label"><i class="ti ti-school"></i>Formation</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></svg>Formation</div>
     <div class="card">
       <div class="edu-item">
         <div class="edu-year">1997 – 2008</div>
@@ -297,7 +713,7 @@
 
   <!-- CERTIFICATS -->
   <section class="section" id="certificates">
-    <div class="section-label"><i class="ti ti-certificate"></i>Certificats</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="15" cy="15" r="3"/><path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5"/><path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v3.5"/><line x1="6" y1="9" x2="14" y2="9"/><line x1="6" y1="12" x2="10" y2="12"/></svg>Certificats</div>
     <div class="card">
       <div class="edu-item">
         <div class="edu-year">Mai 2017</div>
@@ -352,7 +768,7 @@
 
   <!-- OUTILS -->
   <section class="section" id="tools">
-    <div class="section-label"><i class="ti ti-tools"></i>Compétences & outils</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"/><line x1="14.5" y1="5.5" x2="18.5" y2="9.5"/><polyline points="12 8 7 3 3 7 8 12"/><line x1="7" y1="8" x2="5.5" y2="9.5"/><polyline points="16 12 21 17 17 21 12 16"/><line x1="16" y1="17" x2="14.5" y2="18.5"/></svg>Compétences & outils</div>
     <div class="skills-grid">
       <div class="skill-item"><span class="skill-name">Adobe Photoshop</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
       <div class="skill-item"><span class="skill-name">Adobe Lightroom</span><span class="skill-level"><span class="skill-dot"></span>Expert</span></div>
@@ -374,8 +790,9 @@
 
   <!-- COMPÉTENCES PROFESSIONNELLES -->
   <section class="section" id="skills">
-    <div class="section-label"><i class="ti ti-stars"></i>Compétences professionnelles</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17.8 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z"/><path d="M6.2 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z"/><path d="M12 9.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z"/></svg>Compétences professionnelles</div>
     <div class="tags-wrap">
+      <span class="tag">Spécialiste en intelligence artificielle</span>
       <span class="tag">Designer Numérique Multidisciplinaire</span>
       <span class="tag">Artiste 3D + Motion & Design Visuel</span>
       <span class="tag">Designer UI/UX + Prototype Interactif</span>
@@ -389,7 +806,7 @@
 
   <!-- LANGUES -->
   <section class="section" id="languages">
-    <div class="section-label"><i class="ti ti-language"></i>Langues</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418 -2.239 8 -5 8"/><path d="M5 9c0 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4 -9l4 9"/><path d="M19.1 18h-6.2"/></svg>Langues</div>
     <div class="lang-row">
       <div class="lang-card"><div class="lang-name">Arabe</div><div class="lang-level">Langue maternelle</div></div>
       <div class="lang-card"><div class="lang-name">Anglais</div><div class="lang-level">Courant, écrit</div></div>
@@ -399,7 +816,7 @@
 
   <!-- PERSONNALITÉ & INTÉRÊTS -->
   <section class="section" id="personality">
-    <div class="section-label"><i class="ti ti-mood-happy"></i>Personnalité</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="9"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><path d="M9 13a3.5 3.5 0 0 0 6 0"/></svg>Personnalité</div>
     <div class="tags-wrap" style="margin-bottom:20px;">
       <span class="tag">Bonne condition physique</span>
       <span class="tag">Très motivé</span>
@@ -409,96 +826,108 @@
     </div>
     <div class="section-label" style="margin-top:24px;"><i class="ti ti-heart"></i>Centres d'intérêt</div>
     <div class="tags-wrap">
-      <span class="tag"><i class="ti ti-plane" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Voyages</span>
-      <span class="tag"><i class="ti ti-camera" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Photographie</span>
-      <span class="tag"><i class="ti ti-headphones" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Musique</span>
-      <span class="tag"><i class="ti ti-search" style="font-size:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"></i>Recherche</span>
+      <span class="tag"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3z"/></svg>Voyages</span>
+      <span class="tag"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"/><circle cx="12" cy="13" r="3"/></svg>Photographie</span>
+      <span class="tag"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M3 13h3a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-2a2 2 0 0 1 -2 -2v-2a1 1 0 0 1 1 -1z"/><path d="M21 13h-3a1 1 0 0 0 -1 1v3a1 1 0 0 0 1 1h2a2 2 0 0 0 2 -2v-2a1 1 0 0 0 -1 -1z"/></svg>Podcast</span>
+      <span class="tag"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>Recherche</span>
+      <span class="tag"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;color:var(--accent);"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>Artificial Intelligence</span>
     </div>
   </section>
 
   <!-- RÉFÉRENCES -->
   <section class="section" id="reference">
-    <div class="section-label"><i class="ti ti-address-book"></i>Références</div>
+    <div class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 6a2 2 0 0 0 -2 -2h-12a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-12z"/><circle cx="12" cy="11" r="2"/><path d="M7 19v-1a5 5 0 0 1 10 0v1"/><line x1="4" y1="8" x2="6" y2="8"/><line x1="4" y1="12" x2="6" y2="12"/><line x1="4" y1="16" x2="6" y2="16"/></svg>Reference</div>
     <div class="card">
+
       <div class="ref-item">
         <div class="ref-head"><span class="ref-role">Designer Graphique Senior & Chargé Marketing Digital</span><span class="ref-org">NCM Céramique Si-Mustapha</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 024 71 07 36</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>info@ncm-simustapha.dz</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 024 71 07 36</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>info@ncm-simustapha.dz</span>
         </div>
       </div>
+
       <div class="ref-item">
         <div class="ref-head"><span class="ref-role">Designer Graphique Senior</span><span class="ref-org">Poleceram</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0660 885 347</span>
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0661 313 483</span>
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0560 153 845</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>info@poleceram.com</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 0660 885 347</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 0661 313 483</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 0560 153 845</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>info@poleceram.com</span>
         </div>
       </div>
+
       <div class="ref-item">
         <div class="ref-head"><span class="ref-role">Infographiste</span><span class="ref-org">Chlef Ceramic Moderne</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 027 71 14 36</span>
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 561 61 38 33</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>ccm@chlef-ceramic-moderne.com</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>rahmoune@yahoo.com</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 027 71 14 36</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 561 61 38 33</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>ccm@chlef-ceramic-moderne.com</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>rahmoune@yahoo.com</span>
         </div>
       </div>
+
       <div class="ref-item">
         <div class="ref-head"><span class="ref-role">Designer Graphique</span><span class="ref-org">LPT School</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 0560 14 18 56</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>info@lptschool.dz</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 0560 14 18 56</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>info@lptschool.dz</span>
         </div>
       </div>
+
       <div class="ref-item">
         <div class="ref-head"><span class="ref-role">Certificat Marketing Digital</span><span class="ref-org">Google Digital Garage / The Open University</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-hash"></i>ID : YQA86Z9LF</span>
-          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/34WEcN" target="_blank">bit.ly/34WEcN</a></span>
-          <span class="ref-contact"><i class="ti ti-building"></i>PDG iab Europe</span>
-          <span class="ref-contact"><i class="ti ti-building"></i>Président Google EMEA</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>ID: YQA86Z9LF</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"/><line x1="10" y1="14" x2="20" y2="4"/><polyline points="15 4 20 4 20 9"/></svg><a href="https://bit.ly/34WEcN" target="_blank">bit.ly/34WEcN</a></span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="3" y1="21" x2="21" y2="21"/><rect x="5" y="3" width="14" height="18"/><path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/><line x1="9" y1="7" x2="10" y2="7"/><line x1="14" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="10" y2="11"/><line x1="14" y1="11" x2="15" y2="11"/></svg>CEO iab Europe</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="3" y1="21" x2="21" y2="21"/><rect x="5" y="3" width="14" height="18"/><path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/><line x1="9" y1="7" x2="10" y2="7"/><line x1="14" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="10" y2="11"/><line x1="14" y1="11" x2="15" y2="11"/></svg>President Google EMEA</span>
         </div>
       </div>
+
       <div class="ref-item">
-        <div class="ref-head"><span class="ref-role">Certificat Analyse Marketing</span><span class="ref-org">Coursera / Université de Virginie</span></div>
+        <div class="ref-head"><span class="ref-role">Certificat Analyse Marketing</span><span class="ref-org">Coursera / University of Virginia</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-hash"></i>ID : L4TYWNR2ZKXU</span>
-          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/2XqT97V" target="_blank">bit.ly/2XqT97V</a></span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>ID: L4TYWNR2ZKXU</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"/><line x1="10" y1="14" x2="20" y2="4"/><polyline points="15 4 20 4 20 9"/></svg><a href="https://bit.ly/2XqT97V" target="_blank">bit.ly/2XqT97V</a></span>
         </div>
       </div>
+
       <div class="ref-item">
         <div class="ref-head"><span class="ref-role">Certificat Langage de la Forme et du Sens</span><span class="ref-org">Coursera / CalArts Institute</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-hash"></i>ID : 6V7N8BLZC3MX</span>
-          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/371eV5i" target="_blank">bit.ly/371eV5i</a></span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>ID: 6V7N8BLZC3MX</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"/><line x1="10" y1="14" x2="20" y2="4"/><polyline points="15 4 20 4 20 9"/></svg><a href="https://bit.ly/371eV5i" target="_blank">bit.ly/371eV5i</a></span>
         </div>
       </div>
+
       <div class="ref-item">
-        <div class="ref-head"><span class="ref-role">Certificat Faire de l'Architecture</span><span class="ref-org">Coursera / IE Business School & IE École d'Architecture & Design</span></div>
+        <div class="ref-head"><span class="ref-role">Certificat Faire de l'Architecture</span><span class="ref-org">Coursera / IE Business School & IE School of Architecture & Design</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-hash"></i>ID : NCD2VHYMHVWH</span>
-          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://bit.ly/3eHxMVt" target="_blank">bit.ly/3eHxMVt</a></span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>ID: NCD2VHYMHVWH</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"/><line x1="10" y1="14" x2="20" y2="4"/><polyline points="15 4 20 4 20 9"/></svg><a href="https://bit.ly/3eHxMVt" target="_blank">bit.ly/3eHxMVt</a></span>
         </div>
       </div>
+
       <div class="ref-item">
         <div class="ref-head"><span class="ref-role">Certificat Conducteur d'Engins</span><span class="ref-org">EPFP Akbache</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 035 73 62 33</span>
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 675 03 34 69</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>e.akbache@yahoo.com</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>contact@epfpa-dz.com</span>
-          <span class="ref-contact"><i class="ti ti-external-link"></i><a href="https://m.me/epfp.akbache" target="_blank">m.me/epfp.akbache</a></span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 035 73 62 33</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 675 03 34 69</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>e.akbache@yahoo.com</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>contact@epfpa-dz.com</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"/><line x1="10" y1="14" x2="20" y2="4"/><polyline points="15 4 20 4 20 9"/></svg><a href="https://m.me/epfp.akbache" target="_blank">m.me/epfp.akbache</a></span>
         </div>
       </div>
+
       <div class="ref-item" style="border-bottom:none;padding-bottom:0;margin-bottom:0;">
         <div class="ref-head"><span class="ref-role">Agent de Sécurité</span><span class="ref-org">Secur Group SARL</span></div>
         <div class="ref-contacts">
-          <span class="ref-contact"><i class="ti ti-phone"></i>+213 770 11 58 16</span>
-          <span class="ref-contact"><i class="ti ti-mail"></i>d.emploi@securgroup.org</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>+213 770 11 58 16</span>
+          <span class="ref-contact"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>d.emploi@securgroup.org</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -514,23 +943,268 @@
   </footer>
 
 </div>
+
+<button class="pdf-btn" id="pdfBtn" onclick="downloadPDF()"><svg class="icon pdf-icon-normal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4"/><path d="M5 18h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6"/><path d="M17 18h2"/><path d="M20 15h-3v6"/><path d="M11 15a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-1v-6h1z"/></svg><span class="pdf-text-normal">Download PDF</span><svg class="icon pdf-icon-loading icon-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a9 9 0 1 1 -9 9"/></svg><span class="pdf-text-loading" style="display:none">Generating...</span></button>
+
 <script>
-  function scrollTo(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-  }
-  const sections = document.querySelectorAll('.section');
-  const navBtns = document.querySelectorAll('.nav-btn');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.id;
-        navBtns.forEach(b => { b.classList.toggle('active', b.getAttribute('onclick').includes("'" + id + "'")); });
-      }
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  sections.forEach(s => observer.observe(s));
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+const sections = document.querySelectorAll('.section');
+const navBtns  = document.querySelectorAll('.nav-btn');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navBtns.forEach(b => { b.classList.toggle('active', b.getAttribute('onclick').includes("'" + id + "'")); });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
 </script>
+
+<script>
+function downloadPDF() {
+  const btn = document.getElementById('pdfBtn');
+  btn.querySelector('.pdf-icon-normal').style.display  = 'none';
+  btn.querySelector('.pdf-icon-loading').style.display = '';
+  btn.querySelector('.pdf-text-normal').style.display  = 'none';
+  btn.querySelector('.pdf-text-loading').style.display = '';
+  btn.disabled = true;
+  const saved = document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme', 'print');
+  const restore = () => {
+    document.documentElement.setAttribute('data-theme', saved || 'dark');
+    btn.querySelector('.pdf-icon-normal').style.display  = '';
+    btn.querySelector('.pdf-icon-loading').style.display = 'none';
+    btn.querySelector('.pdf-text-normal').style.display  = '';
+    btn.querySelector('.pdf-text-loading').style.display = 'none';
+    btn.disabled = false;
+  };
+  window.onafterprint = restore;
+  setTimeout(() => { window.print(); setTimeout(restore, 2000); }, 200);
+}
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = (html.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('cv-theme', next); } catch(e) {}
+}
+(function() {
+  try {
+    const t = localStorage.getItem('cv-theme');
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  } catch(e) {}
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PRINT VIEW — Hidden on screen, shown on print
+═══════════════════════════════════════════════ -->
+<div id="print-view">
+
+  <!-- HEADER -->
+  <header class="pv-header">
+    <div>
+      <h1 class="pv-name">Naceur Mohammed</h1>
+      <p class="pv-title">Creative Technologist &nbsp;·&nbsp; Digital Product Designer &nbsp;·&nbsp; Technical Visual Designer</p>
+    </div>
+    <div>
+      <div class="pv-contact-line">
+        <span>📞 +213 793 037 595</span>
+        <span>✉ mr.yassinox@icloud.com</span>
+        <span>📍 Chlef, Algeria</span>
+      </div>
+      <!-- <div class="pv-social-line">
+        behance.net/MrYassinox &nbsp;·&nbsp; linkedin.com/MrYassinox
+      </div> -->
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="pv-body">
+
+    <!-- ── LEFT SIDEBAR ── -->
+    <aside class="pv-sidebar">
+
+      <!-- PERSONAL INFO -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">Personal Info</h2>
+        <div class="pv-info-row"><span class="pv-info-label">Birth</span><span>10/09/1992</span></div>
+        <div class="pv-info-row"><span class="pv-info-label">Nationality</span><span>Algerian</span></div>
+        <div class="pv-info-row"><span class="pv-info-label">Status</span><span>Married</span></div>
+        <div class="pv-info-row"><span class="pv-info-label">License</span><span>Category B</span></div>
+        <div class="pv-info-row"><span class="pv-info-label">Travel</span><span>Available</span></div>
+        <div class="pv-info-row"><span class="pv-info-label">Location</span><span>Chlef, Algeria</span></div>
+      </section>
+
+      <!-- LANGUAGES -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">Languages</h2>
+        <div class="pv-lang-row"><span class="pv-lang-name">Arabic</span><span class="pv-lang-level">Native</span></div>
+        <div class="pv-lang-row"><span class="pv-lang-name">English</span><span class="pv-lang-level">Conversational, write</span></div>
+        <div class="pv-lang-row"><span class="pv-lang-name">French</span><span class="pv-lang-level">Conversational</span></div>
+      </section>
+
+      <!-- PERSONALITY -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">Personality</h2>
+        <ul class="pv-list">
+          <li>Good physical condition</li>
+          <li>Hyper motivated</li>
+          <li>Works day and night</li>
+          <li>Suitable for travel</li>
+          <li>Professional responsibility</li>
+        </ul>
+      </section>
+
+      <!-- PROFESSIONAL SKILLS -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">Professional Skills</h2>
+        <ul class="pv-list">
+          <li>Artificial Intelligence Specialist</li>
+          <li>Multidisciplinary Digital Designer</li>
+          <li>3D Artist + Motion &amp; Visual Designer</li>
+          <li>UI/UX + Interactive Prototype Designer</li>
+          <li>Full-stack Developer</li>
+          <li>Industrial Ceramic Production</li>
+          <li>Industrial Visualization Specialist</li>
+          <li>Marketing + Visual Communication</li>
+          <li>Color Management</li>
+        </ul>
+      </section>
+
+      <!-- SKILLS & TOOLS -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">Tools &amp; Software</h2>
+        <ul class="pv-list">
+          <div class="pv-skill"><span class="pv-skill-name">Adobe Photoshop</span><span class="pv-skill-level">Expert</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Adobe Lightroom</span><span class="pv-skill-level">Expert</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Adobe Illustrator</span><span class="pv-skill-level">Expert</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Adobe InDesign</span><span class="pv-skill-level">Senior</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Adobe After Effects</span><span class="pv-skill-level">Advanced</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Adobe XD</span><span class="pv-skill-level">Expert</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Adobe Première</span><span class="pv-skill-level">Senior</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Adobe Audition</span><span class="pv-skill-level">Beginner</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Figma</span><span class="pv-skill-level">Senior</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Blender 3D</span><span class="pv-skill-level">Expert</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">SketchUp 3D</span><span class="pv-skill-level">Senior</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Unreal Engine 3D</span><span class="pv-skill-level">Advanced</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Twinmotion 3D</span><span class="pv-skill-level">Senior</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Davinci Resolve</span><span class="pv-skill-level">Expert</span></div>
+          <div class="pv-skill"><span class="pv-skill-name">Microsoft Office</span><span class="pv-skill-level">Expert</span></div>
+        </ul>
+      </section>
+
+    </aside>
+
+    <!-- ── RIGHT MAIN ── -->
+    <main class="pv-main">
+
+      <!-- ABOUT -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">About Me</h2>
+        <p class="pv-about">A specialized visual arts designer and developer with over 14 years of experience in graphic design, alongside professional mastery of 3D Design, Motion Graphics, and Digital Marketing. Including 8+ years of hands-on experience in the ceramics industry, covering the artistic, technical, and marketing aspects of product development. Expertise encompasses design creation digital and Digital Profiling Color Management and digital printer machines, enabling innovative, market-driven visual solutions and Artificial intelligence specialist.</p>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">Professional Experience</h2>
+
+        <div class="pv-exp">
+          <div class="pv-exp-header">
+            <span class="pv-exp-title">Senior Graphic Designer & Charge of Digital Marketing</span>
+            <span class="pv-exp-date">Nov 2025 – Present</span>
+          </div>
+          <div class="pv-exp-company">NCM Céramique Si-Mustapha — Boumerdes, Algeria</div>
+          <p class="pv-exp-desc">Senior graphic designer &amp; charge of digital marketing at ceramic factory.</p>
+        </div>
+
+        <div class="pv-exp">
+          <div class="pv-exp-header">
+            <span class="pv-exp-title">Senior Graphic Designer</span>
+            <span class="pv-exp-date">Nov 2023 – Aug 2025</span>
+          </div>
+          <div class="pv-exp-company">Poleceram — Bordj Bou Arreridj, Algeria</div>
+          <ul class="pv-exp-tasks">
+        <li>Creation and development of all types of designs for ceramic tiles digital</li>
+        <li>Creation and development of brochures, books, roll-ups and other print materials</li>
+        <li>3D visualization scenes for ceramic tile presentation and modeling</li>
+        <li>Profiling designation for inkjet machines and ceramic color management</li>
+        <li>Creation of advertising designs and social networking management</li>
+          </ul>
+        </div>
+
+        <div class="pv-exp">
+          <div class="pv-exp-header">
+            <span class="pv-exp-title">Graphic Designer</span>
+            <span class="pv-exp-date">Mar 2018 – Nov 2023</span>
+          </div>
+          <div class="pv-exp-company">Chlef Ceramic Moderne — Chlef, Algeria</div>
+          <ul class="pv-exp-tasks">
+            <li>Designs for tiles, textures, brochures, books and 3D visuals</li>
+            <li>Define and manage color profiles for inkjet machines</li>
+            <li>Technician for digital printer (Digital Projector Engineering Machine)</li>
+            <li>Create and manage social media</li>
+          </ul>
+        </div>
+
+        <div class="pv-exp">
+          <div class="pv-exp-header">
+            <span class="pv-exp-title">Security Agent</span>
+            <span class="pv-exp-date">Jun 2014 – Oct 2017</span>
+          </div>
+          <div class="pv-exp-company">Secur Group SARL — Algiers, Algeria</div>
+          <p class="pv-exp-desc">3 years in security and defense at a port in Algiers, under the Directorate of Guarding Property and Defense.</p>
+        </div>
+      </section>
+
+      <!-- EDUCATION & CERTIFICATES -->
+      <section class="pv-section">
+        <h2 class="pv-section-title">Education &amp; Certificates</h2>
+
+        <div class="pv-edu">
+          <div class="pv-edu-header"><span class="pv-edu-title">Lower Secondary School</span><span class="pv-edu-date">1997 – 2008</span></div>
+          <div class="pv-edu-org">Education Degree</div>
+        </div>
+        <div class="pv-edu">
+          <div class="pv-edu-header"><span class="pv-edu-title">Digital Marketing</span><span class="pv-edu-date">May 2017</span></div>
+          <div class="pv-edu-org">Google Digital Garage / The Open University — ID: YQA86Z9LF</div>
+        </div>
+        <div class="pv-edu">
+          <div class="pv-edu-header"><span class="pv-edu-title">Conducteur D'engins</span><span class="pv-edu-date">Dec 2017</span></div>
+          <div class="pv-edu-org">EPFP Akbache</div>
+        </div>
+        <div class="pv-edu">
+          <div class="pv-edu-header"><span class="pv-edu-title">Marketing Analytics</span><span class="pv-edu-date">May 2020</span></div>
+          <div class="pv-edu-org">Coursera / University of Virginia — ID: L4TYWNR2ZKXU</div>
+        </div>
+        <div class="pv-edu">
+          <div class="pv-edu-header"><span class="pv-edu-title">Language of Design Form and Meaning</span><span class="pv-edu-date">May 2020</span></div>
+          <div class="pv-edu-org">Coursera / CalArts Institute — ID: 6V7N8BLZC3MX</div>
+        </div>
+        <div class="pv-edu">
+          <div class="pv-edu-header"><span class="pv-edu-title">Making Architecture</span><span class="pv-edu-date">May 2020</span></div>
+          <div class="pv-edu-org">Coursera / IE Business School &amp; IE School of Architecture &amp; Design</div>
+        </div>
+        <div class="pv-edu">
+          <div class="pv-edu-header"><span class="pv-edu-title">Graphic Designer</span><span class="pv-edu-date">Feb 2026</span></div>
+          <div class="pv-edu-org">LPT School — vocational training accredited by the state</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="pv-footer">
+    <span>Naceur Mohammed &copy; 2026</span>
+    <span>mr.yassinox@icloud.com &nbsp;|&nbsp; github.com/MrYassinox &nbsp;|&nbsp; behance.net/MrYassinox &nbsp;|&nbsp; linkedin.com/MrYassinox</span>
+  </footer>
+
+</div>
+
 </body>
 </html>
