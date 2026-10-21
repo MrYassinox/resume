@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naceur Mohammed (Yassin) — CV </title>
+<title>Naceur Mohammed (Yassin) — CV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -42,7 +42,7 @@
   .page { max-width: 860px; margin: 0 auto; padding: 60px 24px 100px; }
 
   /* ── HERO ── */
-  .hero { display: flex; align-items: flex-start; gap: 28px; padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .hero { display: flex; align-items: flex-start; gap: 28px; padding-bottom: 48px; border-bottom: 1px solid var(--border); margin-bottom: 5px; }
 
   .avatar-container {
     /* object-fit: cover; */
@@ -97,12 +97,12 @@
 
   /* ── NAV ── */
   .nav {
-    display: flex; flex-wrap: wrap; gap: 4px;
+    display: flex; flex-wrap: wrap; gap: 0.5px;
     margin-bottom: 40px;
     position: sticky; top: 0; z-index: 10;
     background: rgba(10,10,10,0.92);
     backdrop-filter: blur(12px);
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 1px solid var(--border);
   }
 
@@ -131,7 +131,7 @@
   /* ── ABOUT ── */
   .about-text {
     font-size: 14px; color: #aaa; line-height: 1.8;
-    max-width: 680px;
+    max-width: 100%;
   }
 
   /* ── CARDS ── */
@@ -172,7 +172,7 @@
   /* ── PROFILES ── */
   .profiles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .profile-link {
-    display: flex; align-items: center; gap: 9px;
+    display: flex; align-items: center; justify-content: flex-start; gap: 9px;
     padding: 10px 14px; border-radius: var(--radius-sm);
     background: var(--bg-card); border: 1px solid var(--border);
     text-decoration: none; color: var(--text-secondary); font-size: 13px;
@@ -403,7 +403,7 @@
   #print-view { display: none; }
 
   @media print {
-    @page { size: A4; margin: 12mm 14mm; }
+    @page { size: A4; margin: 8mm 10mm; }
 
     /* Hide screen UI */
     .page, .nav, .pdf-btn, .lang-switcher, .theme-btn { display: none !important; }
@@ -426,14 +426,14 @@
       justify-content: space-between;
       align-items: flex-end;
       padding-bottom: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 25px;
       border-bottom: 2.5px solid #0d9e6a;
     }
     .pv-name {
-      font-size: 20pt; font-weight: 700; color: #0a0a0a;
+      font-size: 20pt; font-weight: bold; text-transform: uppercase; color: #0a0a0a;
       margin: 0; letter-spacing: -0.5px; line-height: 1.1;
     }
-    .pv-title { font-size: 8pt; color: #0d9e6a; margin: 2px 0 0; }
+    .pv-title { font-size: 8pt; color: #0d9e6a; margin: 8px 0 0; }
     .pv-contact-line {
       font-size: 7.5pt; color: #444;
       text-align: right; margin-bottom: 2px;
@@ -551,6 +551,52 @@
     }
   }
 
+
+  /* ── PRINT FIXES: sidebar containment, tools list, one-line footer ── */
+  @media print {
+    .pv-tools-list { display:block !important; }
+    .pv-tools-list .pv-skill {
+      display:flex; justify-content:space-between; align-items:baseline;
+      font-size:7.5pt; padding:1px 0; border-bottom:1px solid #f0f0f0;
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    .pv-sidebar {
+      width:168px !important; min-width:0 !important; max-width:168px !important;
+      flex-shrink:0; overflow:hidden;
+    }
+    .pv-main { min-width:0; overflow:hidden; }
+    .pv-footer { flex-wrap:nowrap; gap:12px; }
+    .pv-footer span { white-space:nowrap; }
+  }
+
+  @media print {
+    .pv-section { margin-bottom:7px !important; }
+    .pv-exp { margin-bottom:5px !important; padding-bottom:4px !important; }
+    .pv-footer { margin-top:6px !important; padding-top:3px !important; }
+  }
+
+  @page { size:A4; margin:6mm 8mm; }
+  @media print {
+    .pv-edu { margin-bottom:3px !important; }
+    .pv-edu-org { margin-top:0 !important; }
+  }
+  
+  @page { size:A4; margin:6mm 8mm; }
+  @media print {
+    html, body { height: 280mm !important; }
+    #print-view {
+      display: flex !important;
+      flex-direction: column !important;
+      height: 280mm !important;
+    }
+    #print-view .pv-body { flex: 1 1 auto; }
+    #print-view .pv-footer { margin-top: auto !important; }
+  }
+
+  @media print {
+    html, body { background:#fff !important; margin:0 !important; padding:0 !important; }
+    #print-view { background:#fff !important; }
+  }
 </style>
 </head>
 <body>
@@ -596,17 +642,17 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <button class="nav-btn active" onclick="scrollTo('about')">About</button>
-    <button class="nav-btn" onclick="scrollTo('info')">Info</button>
-    <button class="nav-btn" onclick="scrollTo('profiles')">Profiles</button>
-    <button class="nav-btn" onclick="scrollTo('experience')">Experience</button>
-    <button class="nav-btn" onclick="scrollTo('education')">Education</button>
-    <button class="nav-btn" onclick="scrollTo('certificates')">Certificates</button>
-    <button class="nav-btn" onclick="scrollTo('tools')">Tools</button>
-    <button class="nav-btn" onclick="scrollTo('skills')">Skills</button>
-    <button class="nav-btn" onclick="scrollTo('languages')">Languages</button>
-    <button class="nav-btn" onclick="scrollTo('personality')">Personality</button>
-    <button class="nav-btn" onclick="scrollTo('reference')">Reference</button>
+    <button class="nav-btn active" onclick="goToSection('about', this)">About</button>
+    <button class="nav-btn" onclick="goToSection('info', this)">Info</button>
+    <button class="nav-btn" onclick="goToSection('profiles', this)">Profiles</button>
+    <button class="nav-btn" onclick="goToSection('experience', this)">Experience</button>
+    <button class="nav-btn" onclick="goToSection('education', this)">Education</button>
+    <button class="nav-btn" onclick="goToSection('certificates', this)">Certificates</button>
+    <button class="nav-btn" onclick="goToSection('tools', this)">Tools</button>
+    <button class="nav-btn" onclick="goToSection('skills', this)">Skills</button>
+    <button class="nav-btn" onclick="goToSection('languages', this)">Languages</button>
+    <button class="nav-btn" onclick="goToSection('personality', this)">Personality</button>
+    <button class="nav-btn" onclick="goToSection('reference', this)">Reference</button>
   </nav>
 
   <!-- ABOUT -->
@@ -622,7 +668,7 @@
       <div class="info-grid">
         <div class="info-row"><span class="info-label">Birth date</span><span class="info-val">1992</span></div>
         <div class="info-row"><span class="info-label">Nationality</span><span class="info-val">Algerian</span></div>
-        <div class="info-row"><span class="info-label">Family</span><span class="info-val">Married</span></div>
+        <div class="info-row"><span class="info-label">Status</span><span class="info-val">Married</span></div>
         <div class="info-row"><span class="info-label">License</span><span class="info-val">Category B</span></div>
         <div class="info-row"><span class="info-label">Location</span><span class="info-val">Chlef, Algeria</span></div>
         <div class="info-row"><span class="info-label">Travel</span><span class="info-val">Available</span></div>
@@ -949,13 +995,18 @@
 
 </div>
 
-<button class="pdf-btn" id="pdfBtn" onclick="downloadPDF()"><svg class="icon pdf-icon-normal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4"/><path d="M5 18h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6"/><path d="M17 18h2"/><path d="M20 15h-3v6"/><path d="M11 15a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-1v-6h1z"/></svg><span class="pdf-text-normal">Download PDF</span><svg class="icon pdf-icon-loading icon-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a9 9 0 1 1 -9 9"/></svg><span class="pdf-text-loading" style="display:none">Generating...</span></button>
+<button class="pdf-btn" id="pdfBtn" onclick="downloadPDF()">
+  <svg class="icon pdf-icon-normal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4"/><path d="M5 18h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6"/><path d="M17 18h2"/><path d="M20 15h-3v6"/><path d="M11 15a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-1v-6h1z"/></svg>
+  <span class="pdf-text-normal">Download PDF</span>
+  <svg class="icon pdf-icon-loading icon-spin" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a9 9 0 1 1 -9 9"/></svg>
+  <span class="pdf-text-loading" style="display:none">Generating...</span>
+</button>
 
 <script>
-function scrollTo(id) {
+function goToSection(id, btn) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
+  if (btn) btn.classList.add('active');
 }
 const sections = document.querySelectorAll('.section');
 const navBtns  = document.querySelectorAll('.nav-btn');
@@ -1006,26 +1057,14 @@ function toggleTheme() {
 </script>
 
 <!-- ═══════════════════════════════════════════════
-     PRINT VIEW — Hidden on screen, shown on print
+     PRINT VIEW — data injected by buildPrintView()
 ═══════════════════════════════════════════════ -->
 <div id="print-view">
 
   <!-- HEADER -->
   <header class="pv-header">
-    <div>
-      <h1 class="pv-name">Naceur Mohammed</h1>
-      <p class="pv-title">Creative Technologist &nbsp;·&nbsp; Digital Product Designer &nbsp;·&nbsp; Technical Visual Designer</p>
-    </div>
-    <div>
-      <div class="pv-contact-line">
-        <span>📞 +213 793 037 595</span>
-        <span>✉ mr.yassinox@icloud.com</span>
-        <span>📍 Chlef, Algeria</span>
-      </div>
-      <!-- <div class="pv-social-line">
-        behance.net/MrYassinox &nbsp;·&nbsp; linkedin.com/MrYassinox
-      </div> -->
-    </div>
+    <div id="pv-name-slot"></div>
+    <div id="pv-contact-slot"></div>
   </header>
 
   <!-- BODY -->
@@ -1034,70 +1073,29 @@ function toggleTheme() {
     <!-- ── LEFT SIDEBAR ── -->
     <aside class="pv-sidebar">
 
-      <!-- PERSONAL INFO -->
       <section class="pv-section">
         <h2 class="pv-section-title">Personal Info</h2>
-        <div class="pv-info-row"><span class="pv-info-label">Birth</span><span>1992</span></div>
-        <div class="pv-info-row"><span class="pv-info-label">Nationality</span><span>Algerian</span></div>
-        <div class="pv-info-row"><span class="pv-info-label">Status</span><span>Married</span></div>
-        <div class="pv-info-row"><span class="pv-info-label">License</span><span>Category B</span></div>
-        <div class="pv-info-row"><span class="pv-info-label">Travel</span><span>Available</span></div>
-        <div class="pv-info-row"><span class="pv-info-label">Location</span><span>Chlef, Algeria</span></div>
+        <div id="pv-info-slot"></div>
       </section>
 
-      <!-- LANGUAGES -->
       <section class="pv-section">
         <h2 class="pv-section-title">Languages</h2>
-        <div class="pv-lang-row"><span class="pv-lang-name">Arabic</span><span class="pv-lang-level">Native</span></div>
-        <div class="pv-lang-row"><span class="pv-lang-name">English</span><span class="pv-lang-level">Conversational, write</span></div>
-        <div class="pv-lang-row"><span class="pv-lang-name">French</span><span class="pv-lang-level">Conversational</span></div>
+        <div id="pv-lang-slot"></div>
       </section>
 
-      <!-- PERSONALITY -->
       <section class="pv-section">
         <h2 class="pv-section-title">Personality</h2>
-        <ul class="pv-list">
-          <li>Rigor, organization and respect for deadlines</li>
-          <li>Team spirit and adaptability</li>
-          <li>Works day and night</li>
-        </ul>
+        <div id="pv-personality-slot"></div>
       </section>
 
-      <!-- PROFESSIONAL SKILLS -->
       <section class="pv-section">
         <h2 class="pv-section-title">Professional Skills</h2>
-        <ul class="pv-list">
-          <li>Artificial Intelligence Specialist</li>
-          <li>Multidisciplinary Digital Designer</li>
-          <li>3D Artist + Motion &amp; Visual Designer</li>
-          <li>UI/UX + Interactive Prototype Designer</li>
-          <li>Full-stack Developer</li>
-          <li>Industrial Ceramic Production</li>
-          <li>Industrial Visualization Specialist</li>
-          <li>Marketing + Visual Communication</li>
-          <li>Color Management</li>
-        </ul>
+        <div id="pv-skills-slot"></div>
       </section>
 
-      <!-- SKILLS & TOOLS -->
       <section class="pv-section">
         <h2 class="pv-section-title">Tools &amp; Software</h2>
-        <ul class="pv-list">
-          <div class="pv-skill"><span class="pv-skill-name">Adobe Photoshop</span><span class="pv-skill-level">Expert</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Adobe Lightroom</span><span class="pv-skill-level">Expert</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Adobe Illustrator</span><span class="pv-skill-level">Expert</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Adobe InDesign</span><span class="pv-skill-level">Senior</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Adobe After Effects</span><span class="pv-skill-level">Advanced</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Adobe XD</span><span class="pv-skill-level">Expert</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Adobe Première</span><span class="pv-skill-level">Senior</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Figma</span><span class="pv-skill-level">Senior</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Blender 3D</span><span class="pv-skill-level">Expert</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">SketchUp 3D</span><span class="pv-skill-level">Senior</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Unreal Engine 3D</span><span class="pv-skill-level">Advanced</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Twinmotion 3D</span><span class="pv-skill-level">Senior</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Davinci Resolve</span><span class="pv-skill-level">Expert</span></div>
-          <div class="pv-skill"><span class="pv-skill-name">Microsoft Office</span><span class="pv-skill-level">Expert</span></div>
-        </ul>
+        <div id="pv-tools-slot"></div>
       </section>
 
     </aside>
@@ -1105,105 +1103,19 @@ function toggleTheme() {
     <!-- ── RIGHT MAIN ── -->
     <main class="pv-main">
 
-      <!-- ABOUT -->
       <section class="pv-section">
         <h2 class="pv-section-title">About Me</h2>
-        <p class="pv-about">A specialized visual designer and developer with 8+ years of professional experience in the ceramic industry, covering digital tile design, color management, 3D visualization, motion graphics and digital marketing. Skilled in creating digital designs for ceramic tiles, color profiling for digital inkjet printing machines, and applying AI to design and automation workflows, delivering innovative, market-driven visual solutions.</p>
+        <div id="pv-about-slot"></div>
       </section>
 
-      <!-- EXPERIENCE -->
       <section class="pv-section">
         <h2 class="pv-section-title">Professional Experience</h2>
-
-        <div class="pv-exp">
-          <div class="pv-exp-header">
-            <span class="pv-exp-title">Senior Graphic Designer & Digital Marketing Officer</span>
-            <span class="pv-exp-date">Nov 2025 – Present</span>
-          </div>
-          <div class="pv-exp-company">NCM Céramique Si-Mustapha — Boumerdes, Algeria</div>
-          <p class="pv-exp-desc">Ceramic factory company. Responsible for a wide range of tasks including:</p>
-          <ul class="pv-exp-tasks">
-            <li>Lead the online communication strategy and manage social media communities.</li>
-            <li>Creation and develop all types produce visual materials for communication network and print materials.</li>
-            <li>Creation and develop all types designs for ceramic tiles digital.</li>
-            <li>Perform color profiling and manage color tonality of ceramic tile production.</li>
-            <li>Create and develop 2D/3D designs and produce video editing</li>
-          </ul>
-        </div>
-
-        <div class="pv-exp">
-          <div class="pv-exp-header">
-            <span class="pv-exp-title">Senior Graphic Designer</span>
-            <span class="pv-exp-date">Nov 2023 – Aug 2025</span>
-          </div>
-          <div class="pv-exp-company">Poleceram — Bordj Bou Arreridj, Algeria</div>
-          <p class="pv-exp-desc">Ceramic factory company. Responsible for a wide range of tasks including:</p>
-          <ul class="pv-exp-tasks">
-            <li>Creation and development of all types of designs for ceramic tiles digital</li>
-            <li>Creation and development of brochures, books, roll-ups and other print materials</li>
-            <li>Creation of 3D visualization scenes for ceramic tile presentation and modeling</li>
-            <li>Color profiling for inkjet machines and ceramic color management</li>
-            <li>Creation of advertising designs and social networking management</li>
-          </ul>
-        </div>
-
-        <div class="pv-exp">
-          <div class="pv-exp-header">
-            <span class="pv-exp-title">Infographiste</span>
-            <span class="pv-exp-date">Mar 2018 – Nov 2023</span>
-          </div>
-          <div class="pv-exp-company">Chlef Ceramic Moderne — Chlef, Algeria</div>
-          <p class="pv-exp-desc">5+ years at ceramic factory. Responsible for:</p>
-          <ul class="pv-exp-tasks">
-            <li>Create and develop all kinds of designs for tiles, textures, brochures, books and 3D visuals</li>
-            <li>Create and manage social media</li>
-            <li>Define and manage color profiles for inkjet machines</li>
-            <li>Technician responsible for the digital inkjet printer (Digital Projector Engineering Machine)</li>
-          </ul>
-        </div>
-
-        <div class="pv-exp">
-          <div class="pv-exp-header">
-            <span class="pv-exp-title">Security Agent</span>
-            <span class="pv-exp-date">Jun 2014 – Oct 2017</span>
-          </div>
-          <div class="pv-exp-company">Secur Group SARL — Algiers, Algeria</div>
-          <p class="pv-exp-desc">3 years in security and defense at a port in Algiers, under the Directorate of Guarding Property and Defense.</p>
-        </div>
+        <div id="pv-exp-slot"></div>
       </section>
 
-      <!-- EDUCATION & CERTIFICATES -->
       <section class="pv-section">
         <h2 class="pv-section-title">Education &amp; Certificates</h2>
-
-        <div class="pv-edu">
-          <div class="pv-edu-header"><span class="pv-edu-title">Lower Secondary School</span><span class="pv-edu-date">1997 – 2008</span></div>
-          <div class="pv-edu-org">Education Degree</div>
-        </div>
-        <div class="pv-edu">
-          <div class="pv-edu-header"><span class="pv-edu-title">Digital Marketing</span><span class="pv-edu-date">May 2017</span></div>
-          <div class="pv-edu-org">Google Digital Garage / The Open University — ID: YQA86Z9LF</div>
-        </div>
-        <div class="pv-edu">
-          <div class="pv-edu-header"><span class="pv-edu-title">Conducteur D'engins</span><span class="pv-edu-date">Dec 2017</span></div>
-          <div class="pv-edu-org">EPFP Akbache</div>
-        </div>
-        <div class="pv-edu">
-          <div class="pv-edu-header"><span class="pv-edu-title">Marketing Analytics</span><span class="pv-edu-date">May 2020</span></div>
-          <div class="pv-edu-org">Coursera / University of Virginia — ID: L4TYWNR2ZKXU</div>
-        </div>
-        <div class="pv-edu">
-          <div class="pv-edu-header"><span class="pv-edu-title">Language of Design Form and Meaning</span><span class="pv-edu-date">May 2020</span></div>
-          <div class="pv-edu-org">Coursera / CalArts Institute — ID: 6V7N8BLZC3MX</div>
-        </div>
-        <div class="pv-edu">
-          <div class="pv-edu-header"><span class="pv-edu-title">Making Architecture</span><span class="pv-edu-date">May 2020</span></div>
-          <div class="pv-edu-org">Coursera / IE Business School &amp; IE School of Architecture &amp; Design</div>
-        </div>
-        <div class="pv-edu">
-          <div class="pv-edu-header"><span class="pv-edu-title">Graphic Designer</span><span class="pv-edu-date">Feb 2026</span></div>
-          <div class="pv-edu-org">LPT School — vocational training accredited by the state</div>
-        </div>
+        <div id="pv-edu-slot"></div>
       </section>
 
     </main>
@@ -1211,11 +1123,145 @@ function toggleTheme() {
 
   <!-- FOOTER -->
   <footer class="pv-footer">
-    <span>Naceur Mohammed &copy; 2026</span>
-    <span>mr.yassinox@icloud.com &nbsp;|&nbsp; github.com/MrYassinox &nbsp;|&nbsp; behance.net/MrYassinox &nbsp;|&nbsp; linkedin.com/MrYassinox</span>
+    <div id="pv-footer-slot" style="display:contents"></div>
   </footer>
 
 </div>
 
+<script>
+// ── buildPrintView ──────────────────────────────
+// Reads data from screen sections and injects it
+// into #print-view slots — single source of truth.
+// Called once on DOMContentLoaded.
+// ────────────────────────────────────────────────
+function buildPrintView() {
+
+  const txt = el => el ? el.textContent.trim() : '';
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+
+  // ── HEADER: Name + Roles ──
+  const name  = txt($('.hero-info h1'));
+  const roles = $$('.role-pill').map(r => txt(r)).join(' · ');
+  const slot_name = document.getElementById('pv-name-slot');
+  if (slot_name) slot_name.innerHTML =
+    `<h1 class="pv-name">${name}</h1>` +
+    (roles ? `<p class="pv-title">${roles}</p>` : '');
+
+  // ── HEADER: Contacts ──
+  const contacts = $$('.contact-item')
+    .map(c => `<span>${txt(c)}</span>`).join('');
+  const slot_contact = document.getElementById('pv-contact-slot');
+  if (slot_contact) slot_contact.innerHTML =
+    `<div class="pv-contact-line">${contacts}</div>`;
+
+  // ── PERSONAL INFO ──
+  const infoRows = $$('#info .info-row').map(row => {
+    const label = txt(row.querySelector('.info-label'));
+    const val   = txt(row.querySelector('.info-val'));
+    return `<div class="pv-info-row">` +
+           `<span class="pv-info-label">${label}</span>` +
+           `<span>${val}</span></div>`;
+  }).join('');
+  const slot_info = document.getElementById('pv-info-slot');
+  if (slot_info) slot_info.innerHTML = infoRows;
+
+  // ── LANGUAGES ──
+  const langs = $$('#languages .lang-card').map(c => {
+    const n = txt(c.querySelector('.lang-name'));
+    const l = txt(c.querySelector('.lang-level'));
+    return `<div class="pv-lang-row">` +
+           `<span class="pv-lang-name">${n}</span>` +
+           `<span class="pv-lang-level">${l}</span></div>`;
+  }).join('');
+  const slot_lang = document.getElementById('pv-lang-slot');
+  if (slot_lang) slot_lang.innerHTML = langs;
+
+  // ── PERSONALITY ──
+  const persWrap = $$('#personality .tags-wrap');
+  const persTags = persWrap[0] ? $$('#personality .tags-wrap')[0].querySelectorAll('.tag') : [];
+  const persHtml = [...persTags].map(t => `<li>${txt(t)}</li>`).join('');
+  const slot_pers = document.getElementById('pv-personality-slot');
+  if (slot_pers) slot_pers.innerHTML = `<ul class="pv-list">${persHtml}</ul>`;
+
+  // ── PROFESSIONAL SKILLS ──
+  const skillTags = $$('#skills .tag');
+  const skillsHtml = skillTags.map(t => `<li>${txt(t)}</li>`).join('');
+  const slot_skills = document.getElementById('pv-skills-slot');
+  if (slot_skills) slot_skills.innerHTML = `<ul class="pv-list">${skillsHtml}</ul>`;
+
+  // ── TOOLS & SOFTWARE ──
+  const toolItems = $$('#tools .skill-item').map(item => {
+    const name  = txt(item.querySelector('.skill-name'));
+    const level = txt(item.querySelector('.skill-level'));
+    return `<div class="pv-skill">` +
+           `<span class="pv-skill-name">${name}</span>` +
+           `<span class="pv-skill-level">${level}</span></div>`;
+  }).join('');
+  const slot_tools = document.getElementById('pv-tools-slot');
+  if (slot_tools) slot_tools.innerHTML =
+    `<div class="pv-tools-list">${toolItems}</div>`;
+
+  // ── ABOUT ME ──
+  const about = txt($('#about .about-text'));
+  const slot_about = document.getElementById('pv-about-slot');
+  if (slot_about) slot_about.innerHTML = `<p class="pv-about">${about}</p>`;
+
+  // ── PROFESSIONAL EXPERIENCE ──
+  const expHtml = $$('#experience .card').map(card => {
+    const title   = txt(card.querySelector('.exp-title'));
+    const date    = txt(card.querySelector('.exp-badge'));
+    const company = txt(card.querySelector('.exp-company'));
+    const desc    = txt(card.querySelector('.exp-desc'));
+    const tasks   = [...(card.querySelectorAll('.exp-tasks li') || [])]
+                    .map(li => `<li>${txt(li)}</li>`).join('');
+    return `<div class="pv-exp">` +
+      `<div class="pv-exp-header">` +
+        `<span class="pv-exp-title">${title}</span>` +
+        `<span class="pv-exp-date">${date}</span>` +
+      `</div>` +
+      `<div class="pv-exp-company">${company}</div>` +
+      (desc  ? `<p class="pv-exp-desc">${desc}</p>` : '') +
+      (tasks ? `<ul class="pv-exp-tasks">${tasks}</ul>` : '') +
+    `</div>`;
+  }).join('');
+  const slot_exp = document.getElementById('pv-exp-slot');
+  if (slot_exp) slot_exp.innerHTML = expHtml;
+
+  // ── EDUCATION + CERTIFICATES ──
+  const eduItems = [
+    ...$$('#education .edu-item'),
+    ...$$('#certificates .edu-item')
+  ];
+  const eduHtml = eduItems.map(item => {
+    const year  = txt(item.querySelector('.edu-year'));
+    const title = txt(item.querySelector('.edu-title'));
+    const org   = txt(item.querySelector('.edu-org'));
+    return `<div class="pv-edu">` +
+      `<div class="pv-edu-header">` +
+        `<span class="pv-edu-title">${title}</span>` +
+        `<span class="pv-edu-date">${year}</span>` +
+      `</div>` +
+      (org ? `<div class="pv-edu-org">${org}</div>` : '') +
+    `</div>`;
+  }).join('');
+  const slot_edu = document.getElementById('pv-edu-slot');
+  if (slot_edu) slot_edu.innerHTML = eduHtml;
+
+  // ── FOOTER ──
+  const footerName = txt($('.hero-info h1'));
+  const footerKeep = ['github.com', 'linkedin.com', 'behance.net'];
+  const footerProfiles = $$('.profile-link')
+    .filter(a => footerKeep.some(k => (a.getAttribute('href') || '').includes(k)))
+    .map(a => txt(a));
+  const footerLinks = ['mr.yassinox@icloud.com', ...footerProfiles].join(' | ');
+  const slot_footer = document.getElementById('pv-footer-slot');
+  if (slot_footer) slot_footer.innerHTML =
+    `<span>${footerName} &copy; 2026</span>` +
+    `<span>${footerLinks}</span>`;
+}
+
+document.addEventListener('DOMContentLoaded', buildPrintView);
+</script>
 </body>
 </html>
